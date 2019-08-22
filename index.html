@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Browser ZIP</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="skeleton.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+      <h3>Last ned Adform-annonser som zip</h3>
+      <div class="ads">
+        <div v-for="ad in ads" class="ad" :class="{inActive: !ad.active}">
+          <label>
+            <span class="text">{{ ad.width }} : {{ ad.height }}</span>
+            <input type="checkbox" v-model="ad.active" />
+          </label>
+          <label :class="{ok: ad.ok}">
+            <span class="text">Bilde</span>
+            <input type="file" @change="setFile($event, ad)" accept="image/*" />
+            <span class="ok">✓</span>
+          </label>
+          <label :class="{ok: ad.ok}">
+            <span class="text">Vimeo videolenke</span>
+            <input type="text" v-model="ad.video" />
+            <span class="ok">✓</span>
+          </label>
+        </div>
+        <div class="new-size ad">
+          <h5>Ny størrelse</h5>
+          <label>
+            <span class="text">Bredde</span>
+            <input type="number" v-model.number="newW">
+          </label>
+          <label>
+            <span class="text">Høyde</span>
+            <input type="number" v-model.number="newH">
+          </label>
+          <button @click="newSize">+ Legg til størrelse</button>
+        </div>
+      </div>
+      <div>
+        <button @click="download" class="button-primary">⇩ Last ned ZIP</button>
+      </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="node_modules/jszip/dist/jszip.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="filesaver.js" />
+  </body>
+</html>

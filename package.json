@@ -1,0 +1,15 @@
+{
+  "name": "browser-zip",
+  "version": "1.0.0",
+  "description": "Pakker sammen filer til Adform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jszip": "^3.2.2",
+    "npm": "^6.11.1"
+  }
+}
