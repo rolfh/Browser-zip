@@ -1,3 +1,6 @@
+import('./node_modules/jszip/dist/jszip.js')
+import('./filesaver.js')
+
 var vm = new Vue({
   el: '#app',
   data() {
