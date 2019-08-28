@@ -13,38 +13,49 @@
     <div id="app">
       <div class="container">
       <h3>Last ned Adform-annonser som zip</h3>
+      
       <div class="ads">
-        <div v-for="ad in ads" class="ad" :class="{inActive: !ad.active}">
+        <div class="commonInputs">
           <label>
-            <span class="text">{{ ad.width }} : {{ ad.height }}</span>
-            <input type="checkbox" v-model="ad.active" />
-          </label>
-          <label :class="{ok: ad.ok}">
-            <span class="text">Bilde</span>
-            <input type="file" @change="setFile($event, ad)" accept="image/*" />
-            <span class="ok">✓</span>
-          </label>
-          <label :class="{ok: ad.ok}">
-            <span class="text">Vimeo videolenke</span>
-            <input type="text" v-model="ad.video" />
-            <span class="ok">✓</span>
+            <span class="text">Landingsside</span>
+            <input type="text" v-model="landingPage">
           </label>
         </div>
-        <div class="new-size ad">
-          <h5>Ny størrelse</h5>
+          <div class="new-size ad">
+            <label>
+              <span class="text">Bredde</span>
+              <input type="number" v-model.number="newW" v-on:keyup.enter="newSize">
+            </label>
+            <label>
+              <span class="text">Høyde</span>
+              <input type="number" v-model.number="newH" v-on:keyup.enter="newSize">
+            </label>
+            <label>
+              <span class="text">Legg til ny størrelse</span>
+              <button @click="newSize">✏️</button>
+            </label>
+          </div>
+        <div v-for="(ad, adIndex) in ads" class="ad" >
           <label>
-            <span class="text">Bredde</span>
-            <input type="number" v-model.number="newW">
+            <span class="text">Størrelse</span>
+            <h4>{{ ad.width }} : {{ ad.height }}</h4>
           </label>
           <label>
-            <span class="text">Høyde</span>
-            <input type="number" v-model.number="newH">
+            <span class="text">Bilde</span>
+            <input type="file" @change="setFile($event, ad)" accept="image/*" />
           </label>
-          <button @click="newSize">+ Legg til størrelse</button>
+          <label>
+            <span class="text">Vimeo videolenke</span>
+            <input type="text" v-model="ad.video" />
+          </label>
+          <label>
+            <span class="text">Slett</span>
+            <button @click="remove(adIndex)">🚽</button>
+          </label>
         </div>
       </div>
       <div>
-        <button @click="download" class="button-primary">⇩ Last ned ZIP</button>
+        <button @click="download" >💾 Last ned ZIP</button>
       </div>
     </div>
     </div>

@@ -5,7 +5,7 @@
 		<script type="text/javascript">
 			function adfOpenGlobalClickTAG() {
 				var adfClickTAGName = 'clickTAG2',
-					adfClickTAGUrl = '<!--CLICKTAG1-->';
+					adfClickTAGUrl = 'https://reppetoppen.no/';
 
 				window.open(
 					dhtml.getVar(adfClickTAGName, adfClickTAGUrl),
@@ -29,6 +29,11 @@
 				});
 			}
 		</script>
+		<style>
+			html {
+				cursor: pointer;
+			}
+		</style>
 		<!--Adform Global Clicktag END-->
 
 		<!-- Adform API Script -->
@@ -44,28 +49,18 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>Ad</title>
-		<style>
-			body {
-				margin: 0;
-				overflow: hidden;
-			}
-			* {
-				-webkit-box-sizing: border-box;
-				box-sizing: border-box;
-			}
-			video {
-				width: 100%;
-				cursor: pointer;
-			}
-			#banner {
-				cursor: pointer;
-			}
-		</style>
+		<title>AdForm Video Ad</title>
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<div class="ad" id="banner">
-			<!--VIDEO-->
+			<video
+				src="https://player.vimeo.com/external/354871204.sd.mp4?s=510eae7312b7bd6d68ecfed514b1920ff7c8a096&profile_id=165"
+				autoplay
+				loop
+				muted
+				poster="RT prog u34-54_980x600 fallback.jpg"
+			></video>
 		</div>
 		<script>
 			//Click Tag definition
@@ -73,7 +68,7 @@
 				var banner = document.getElementById('banner');
 				var clickTAGvalue = dhtml.getVar(
 					'clickTAG',
-					'<!--CLICKTAG2-->'
+					'https://reppetoppen.no/'
 				);
 				var landingpagetarget = dhtml.getVar(
 					'landingPageTarget',
@@ -86,11 +81,11 @@
 			})();
 		</script>
 		<script>
+			var videoElem = document.querySelector('video');
 			setTimeout(function() {
-				var video = document.querySelector('video');
-				video.removeAttribute('loop');
-				video.currentTime = video.duration;
-			}, 30000);
+				videoElem.loop = false;
+				videoElem.currentTime = videoElem.duration;
+			}, 30 * 1000);
 		</script>
 	</body>
 </html>

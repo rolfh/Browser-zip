@@ -1,20 +1,20 @@
 {
-  "version": "1.0",
+	"version": "1.0",
 
-  "title": "Ad",
-  "description": "",
+	"title": "Ad",
+	"description": "",
 
-  "width": "",
-  "height": "",
+	"width": "",
+	"height": "",
 
-  "events": {
-    "enabled": 1,
-    "list": {}
-  },
+	"events": {
+		"enabled": 1,
+		"list": {}
+	},
 
-  "clicktags": {
-    "clickTAG": "http://www.adform.com"
-  },
+	"clicktags": {
+		"clickTAG": ""
+	},
 
-  "source": "index.html"
+	"source": "index.html"
 }
