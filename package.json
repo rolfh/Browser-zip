@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "jszip": "^3.2.2",
-    "npm": "^6.11.1"
+    "npm": "^6.14.6"
   }
 }
